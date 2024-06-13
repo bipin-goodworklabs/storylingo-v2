@@ -39,11 +39,11 @@ import desktopLevel9 from "../../assets/images/desktopLevel9.png";
 import profilePic from "../../assets/images/profile_url.png";
 import textureImage from "../../assets/images/textureImage.png";
 import scoreView from "../../assets/images/scoreView.png";
-import back from "../../assets/images/back-arrow.png";
 import { jwtDecode } from "jwt-decode";
 import config from "../../utils/urlConstants.json";
 import panda from "../../assets/images/panda.svg";
 import cryPanda from "../../assets/images/cryPanda.svg";
+import BackButton from "../../ui-components/backButton";
 
 export const LanguageModal = ({ lang, setLang, setOpenLangModal }) => {
   const [selectedLang, setSelectedLang] = useState(lang);
@@ -380,9 +380,7 @@ export const ProfileHeader = ({
         <Box sx={{ display: "flex", alignItems: "center", width: "50%" }}>
           {handleBack && (
             <Box ml="94px">
-              <IconButton onClick={handleBack}>
-                <img src={back} alt="back" style={{ height: "30px" }} />
-              </IconButton>
+              <BackButton onClick={handleBack} />
             </Box>
           )}
           {username && (

@@ -4,7 +4,7 @@ import v11 from "../../assets/audio/V10.mp3";
 import VoiceAnalyser from "../../utils/VoiceAnalyser";
 import { PlayAudioButton, StopAudioButton } from "../../utils/constants";
 import MainLayout from "../Layouts.jsx/MainLayout";
-import { CircularProgress } from "../../../node_modules/@mui/material/index";
+import WordSentencesMechanics from "../../mechanicsComponent/wordsSentences";
 
 const WordsOrImage = ({
   handleNext,
@@ -94,7 +94,7 @@ const WordsOrImage = ({
         loading,
       }}
     >
-      <CardContent
+     <CardContent
         sx={{
           overflow: "hidden",
           pt: "100px",
@@ -199,45 +199,7 @@ const WordsOrImage = ({
             </Box>
           </Box>
         ) : (
-          <Box>
-            {!words && (
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <CircularProgress size="3rem" sx={{ color: "#E15404" }} />
-              </Box>
-            )}
-            {words && !matchedChar && (
-              <Typography
-                variant="h5"
-                component="h4"
-                sx={{
-                  mb: 4,
-                  color: "#333F61",
-                  textAlign: "center",
-                  fontSize: "40px",
-                  paddingX: "140px",
-                  lineHeight: "normal",
-                  fontWeight: 700,
-                  fontFamily: "Quicksand",
-                  lineHeight: "50px",
-                }}
-              >
-                {words || ""}
-              </Typography>
-            )}
-            {matchedChar && (
-              <Box
-              display={"flex"}
-              mb={4}
-              sx={{
-                width: "100%",
-                justifyContent: "center",
-                flexWrap: "wrap",
-              }}
-            >
-                {highlightWords(words, matchedChar)}
-              </Box>
-            )}
-         </Box>
+          <WordSentencesMechanics words={words} matchedChar={matchedChar} highlightWords={highlightWords}/>
         )}
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <VoiceAnalyser
