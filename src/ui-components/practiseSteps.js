@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { GreenTick, practiceSteps } from "../utils/constants";
-
+//  dummy comment
 function PracticeSteps({ currentPracticeStep }) {
   return (
     <Box
